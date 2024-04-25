@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Contrastive Learning, Data-Efficient, Self-Supervised Learning">
+  <meta name="description" content="Contrastive Language-Image Pretraining, CLIP, Data-Efficient, Multi-modal Learning">
   <meta property="og:title" content="Data-Efficient Contrastive Learning"/>
-  <meta property="og:description" content="A paper on how to choose good subsets of data to train on that allow contrastive learning on the subset to match the perfomrance on the full data"/>
+  <meta property="og:description" content="A paper on how to choose good subsets of data to train on that allow CLIP training on the subset to match the performance on the full data"/>
   <meta property="og:url" content="https://sjoshi804.github.io"/>
 
 
-  <meta name="twitter:title" content="Data-Efficient Contrastive Learning (ICML 2023)">
-  <meta name="twitter:description" content="Project Page (with links to paper and code) for Data-Efficient Contrastive Learning (ICML 2023)">
+  <meta name="twitter:title" content="Data-Efficient Contrastive Language-Image Pretraining (AISTATS 2024)">
+  <meta name="twitter:description" content="Project Page (with links to paper and code) for Data-Efficient Contrastive Learning (AISTATS 2024)">
   <!-- Path git@github.com:sjoshi804/data-efficient-contrastive-learning.gitto banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/discard-pct.png">
   <!-- Keywords for your paper to be indexed by-->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Data-Efficient Contrastive Learning</title>
+  <title>Data-Efficient Contrastive Language-Image Pretraining</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -47,23 +47,29 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Data-Efficient Contrastive Learning</h1>
+            <h1 class="title is-1 publication-title">Data-Efficient Contrastive Language-Image Pretraining</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://sjoshi804.github.io" target="_blank">Siddharth Joshi</a>,</span>
-                <span class="author-block">
-                  <a href="http://web.cs.ucla.edu/~baharan/index.htm" target="_blank">Baharan Mirzasoleiman</a>
-                </span>
+                <a href="https://sjoshi804.github.io" target="_blank">Siddharth Joshi</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/arnavjain1/" target="_blank">Arnav Jain</a>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/ali-payani-59267515/" target="_blank">Ali Payani</a>
+              </span>
+              <span class="author-block">
+                <a href="http://web.cs.ucla.edu/~baharan/index.htm" target="_blank">Baharan Mirzasoleiman</a>
+              </span>
                   </div>
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">UCLA CS <br> <b>ICML 2023</b></span>
+                    <span class="author-block">UCLA CS, Cisco Systems<br> <b>AISTATS 2024</b></span>
                   </div>
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://proceedings.mlr.press/v202/joshi23b.html" target="_blank"
+                        <a href="https://arxiv.org/abs/2403.12267" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -145,7 +151,7 @@ End teaser video -->
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Self-supervised learning (SSL) learns high-quality representations from large pools of unlabeled training data. As datasets grow larger, it becomes crucial to identify the examples that contribute the most to learning such representations. This enables efficient SSL by reducing the volume of data required for learning high-quality representations. Nevertheless, quantifying the value of examples for SSL has remained an open question. In this work, we address this for the first time, by proving that examples that contribute the most to contrastive SSL are those that have the most similar augmentations to other examples, in expectation. We provide rigorous guarantees for the generalization performance of SSL on such subsets. Empirically, we discover, perhaps surprisingly, the subsets that contribute the most to SSL are those that contribute the least to supervised learning. Through extensive experiments, we show we can safely exclude 20% of examples from CIFAR100 and 40% from STL10 and TinyImageNet, without affecting downstream task performance. We also show that our subsets outperform random subsets by more than 2% on CIFAR10. We also demonstrate that these subsets are effective across contrastive SSL methods (evaluated on SimCLR, MoCo, SimSiam, BYOL).
+            Contrastive Language-Image Pre-training (CLIP) on large-scale image-caption datasets learns representations that can achieve remarkable zero-shot generalization. However, such models require a massive amount of pre-training data. Improving the quality of the pre-training data has been shown to be much more effective in improving CLIP's performance than increasing its volume. Nevertheless, finding small subsets of training data that provably generalize the best has remained an open question. In this work, we propose the first theoretically rigorous data selection method for CLIP. We show that subsets that closely preserve the cross-covariance of the images and captions of the full data provably achieve a superior generalization performance. Our extensive experiments on ConceptualCaptions3M and ConceptualCaptions12M demonstrate that subsets found by \method\ achieve over 2.7x and 1.4x the accuracy of the next best baseline on ImageNet and its shifted versions. Moreover, we show that our subsets obtain 1.5x the average accuracy across 11 downstream datasets, of the next best baseline. 
           </p>
         </div>
       </div>
@@ -158,26 +164,7 @@ End teaser video -->
 <br>
 <div class="columns is-centered">
   <div class="column is-three-fifths">
-    <h2 class="title is-3">Highlights</h2>
-      <h3 class="title is-4">New Problem</h3>
-      <hr>
-      <div class="content has-text-justified">
-        <p>
-          Previous work has studied data-efficiency for supervised learning and shown that nearly 30% of examples can be discarded on many datasets without sacrificing accuracy. 
-          However, this problem has not been studied for self-supervised learning. Our paper proposes the first empirical and theoretical method for data-efficient contrastive learning.
-          We show that across various datasets (CIFAR100, STL10 and TinyImageNet), our method allows you to discard 20-40% of examples without affecting downstream classification accuracy.
-        </p>
-      </div>
-      <img src="./static/images/discard-pct.png" class="is-centered">
-      <br>
-      <h3 class="title is-4">Theoretical Guarantees for Downstream Accuracy</h3>
-      <hr>
-      <div class="content has-text-justified">
-        <p>
-          We use <a href="https://arxiv.org/abs/2111.0074">[Huang et al. 2023]</a> theoretical characterization of contrastive learning using <b>alignment</b> and <b>divergence of class centers</b> to show that the subset
-          we choose preserves alignment and divergence of class centers and thus preserves downstream accuracy. 
-        </p>
-      </div>
+    <h2 class="title is-3">Coming Soon!</h2>
   </div>
 </div>
 
@@ -224,20 +211,12 @@ End youtube video -->
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-        @InProceedings{pmlr-v202-joshi23b,
-        title = {Data-Efficient Contrastive Self-supervised Learning: Most Beneficial Examples for Supervised Learning Contribute the Least},
-        author = {Joshi, Siddharth and Mirzasoleiman, Baharan},
-        booktitle = {Proceedings of the 40th International Conference on Machine Learning},
-        pages = {15356--15370},
-        year = {2023},
-        editor = {Krause, Andreas and Brunskill, Emma and Cho, Kyunghyun and Engelhardt, Barbara and Sabato, Sivan and Scarlett, Jonathan},
-        volume = {202},
-        series = {Proceedings of Machine Learning Research},
-        month = {23--29 Jul},
-        publisher = {PMLR},
-        pdf = {https://proceedings.mlr.press/v202/joshi23b/joshi23b.pdf},
-        url = {https://proceedings.mlr.press/v202/joshi23b.html},
-      }
+        @article{joshi2024data,
+          title = {Data-Efficient Contrastive Multi-Modal Learning: Prioritizing Data Quality Over Quantity},
+          author = {Joshi, Siddharth and Jain, Arnav and Payani, Ali and Mirzasoleiman, Baharan},
+          journal = {International Conference on Artificial Intelligence and Statistics (AISTATS)},
+          year = {2024}
+        }
       </code></pre>
     </div>
 </section>
